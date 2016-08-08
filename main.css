@@ -1,0 +1,399 @@
+﻿/* TABLE OF CONTENTS
+
+    1. Basic Document Styles
+    2. Typography
+    3. Button
+    4. Game Board
+    5. Media Queries
+
+*/
+/* 1. Basic Document Styles
+-------------------------------------------------*/
+
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+html {  font-size: 100%;  }
+
+html, body {
+  height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .87);
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    text-align: center;
+
+    background: rgba(243,226,199,1);
+background: -moz-linear-gradient(left, rgba(243,226,199,1) 0%, rgba(193,158,103,1) 14%, rgba(182,141,76,1) 84%, rgba(233,212,179,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(243,226,199,1)), color-stop(14%, rgba(193,158,103,1)), color-stop(84%, rgba(182,141,76,1)), color-stop(100%, rgba(233,212,179,1)));
+background: -webkit-linear-gradient(left, rgba(243,226,199,1) 0%, rgba(193,158,103,1) 14%, rgba(182,141,76,1) 84%, rgba(233,212,179,1) 100%);
+background: -o-linear-gradient(left, rgba(243,226,199,1) 0%, rgba(193,158,103,1) 14%, rgba(182,141,76,1) 84%, rgba(233,212,179,1) 100%);
+background: -ms-linear-gradient(left, rgba(243,226,199,1) 0%, rgba(193,158,103,1) 14%, rgba(182,141,76,1) 84%, rgba(233,212,179,1) 100%);
+background: linear-gradient(to right, rgba(243,226,199,1) 0%, rgba(193,158,103,1) 14%, rgba(182,141,76,1) 84%, rgba(233,212,179,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3', GradientType=1 );
+}
+h1 {
+    font-size: 112px;
+    font-size: 7rem;
+    color: rgba(0,0,0,.54);
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-weight: 300;
+}
+h2 {
+    font-size: 56px;
+    font-size: 3.5rem;
+    color: rgba(0,0,0,.54);
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-weight: 400;
+}
+h3 {
+    font-size: 45px;
+    font-size: 2.8rem;
+    color: rgba(0,0,0,.54);
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-weight: 400;
+    line-height: 48px;
+    line-height: 3rem;
+}
+h4 {
+    font-size: 34px;
+    font-size: 2.1rem;
+    color: rgba(0,0,0,.54);
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-weight: 400;
+    line-height: 40px;
+    line-height: 2.5rem;
+}
+h5 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(0,0,0,.87);
+    line-height: 32px;
+    line-height: 2rem;
+}
+h6 {
+    font-size: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(0,0,0,0.87);
+}
+caption {
+    font-size: 12px;
+    font-size: 0.7rem;
+    color: rgba(0,0,0,0.54);
+}
+button {
+    font-weight: 500;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-size: 14px;
+    font-size: 0.8rem;
+    color: rgba(0,0,0,0.87);
+    text-transform: uppercase;
+    cursor:pointer;
+}
+nav {
+    background-color: #009688;
+    color: #000;
+    text-transform: uppercase;
+}
+i {
+    padding: 0 5px;
+    color: #fff;   
+}
+img {  display: block;  }
+
+section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: 1000px;
+}
+a {  color: #9C27B0;  }
+
+fa { color: #ccc; }
+
+/* 2. Typography 
+-------------------------------------------------*/
+
+.primary-color { color: #009688;  }
+
+.primary-color100 {  color: #B2DFDB;  }
+
+.primary-color700 {  color: #00796B;  }
+
+.accent-color {  color: #FF6E40;  }
+
+.accent-100 {  color: #FF9E80;  }
+
+.accent-400 {  color: #FF3D00;  }
+
+.base-black {  color: #000;  }
+
+.text-primary-black {
+    color: #000;
+    opacity: .87;
+}
+.secondary-text-black {
+    color: #000;
+    opacity: .54;
+}
+.disabled-text-black {
+    color: #000;
+    opacity: .38;
+}
+.dividers-black {
+    color: #000;
+    opacity: .12;
+}
+.base-white {  color: #FFF;  }
+
+.text-primary-white {  color: #FFF;  }
+
+.secondary-text-white {
+    color: #FFF;
+    opacity: .70;
+}
+.disabled-text-white {
+    color: #FFF;
+    opacity: .30;
+}
+.dividers-white {
+    color: #000;
+    opacity: .12;
+}
+/* 3. Button
+-------------------------------------------------*/
+
+.btn {
+    min-width: 64px;
+    min-height: 36px;
+    padding: 0 8px;
+    margin: 8px;
+    letter-spacing: 1px;
+    background-color: #E040FB;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    border: 0 none;
+    border-radius: none;   
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+    outline: 0 none;
+    box-shadow: 0 0 8px rgba(0,0,0,.18), 0 8px 16px rgba(0,0,0,.36);
+}
+.btn-primary {
+    color: #ffffff;
+    background: #E040FB;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    background: #D500F9;
+}
+.btn-primary:active,
+.btn-primary.active {
+    background: #E040FB;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover {
+    background: #E040FB;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+/* Game Board 
+------------------------ */
+
+.wrapper {
+    position: relative;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    background-color: #424242;
+    box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.2);
+}
+
+.block {
+    width: 175px;
+    height: 175px;
+    display: inline-block;
+}
+
+.block-green {
+    background-color: green;
+    border-top-left-radius: 100%;
+    margin-top: 5%;
+}
+
+.block-red {
+    background-color: red;
+    border-top-right-radius: 100%;
+    margin-top: 5%;
+}
+
+.block-yellow {
+    background-color: yellow;
+    border-bottom-left-radius: 100%;
+    margin-bottom: 10%;
+}
+
+.block-blue {
+    background-color: blue;
+    border-bottom-right-radius: 100%;
+    margin-bottom: 10%;
+}
+
+.round_display {
+    line-height: 16px;
+    min-height: 16px;
+}
+
+.btn_menu {
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    min-height: 32px;
+    min-width: 32px;
+    opacity: .6;
+    transition: opacity 2s;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
+
+.btn-start-off {
+    background-color: red;
+    opacity: .6;
+    cursor: initial;
+}
+
+.btn-start-on {
+    opacity: 1;
+    background-color: darkgreen;
+}
+
+.btn-strict-off {
+    background-color: yellow;
+    opacity: .6; 
+    cursor: initial;    
+}
+
+.btn-strict-on {
+    background-color: yellow;
+    opacity: 1;
+}
+
+.menu_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    z-index: 5;
+    margin-top: -100px;
+    margin-left: -100px;
+    box-shadow: 0 0 0 25px #424242;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+
+.button_wrapper {
+    width: 45%;
+    display: inline-block;
+}
+
+.title{
+    text-transform: uppercase;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.slider {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    vertical-align: bottom;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    background-color: blue;
+    transition: all .5s;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
+
+.slider-button-off {
+    margin-right: -30px;
+}
+
+.slider-button-on {
+    margin-left: -30px;
+}
+
+.power_button {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+/* 5. Media Queries
+------------------------------ */
+
+@media (max-width: 450px) {
+    .wrapper {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .block {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .menu_wrapper{
+        width: 60%;
+        height: 60%;
+        margin-top: -90px;
+        margin-left: -90px;
+        box-shadow: 0 0 0 10px #424242;
+    }
+    
+    h4 {
+        font-size: 24px;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: rgba(0,0,0,.87);
+        line-height: 32px;
+        line-height: 2rem;
+    }
+    
+    .block-blue {
+        margin-bottom: 5%;
+    }
+    
+    .block-yellow {
+        margin-bottom: 5%;
+    }
+}
+
+
+

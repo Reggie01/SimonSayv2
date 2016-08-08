@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1"> 
+    <title>Mini Timer Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="main.css" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+       <div class="wrapper center">
+           <div id="green" class="block block-green"></div>
+           <div id="red" class="block block-red"></div>
+           <div id="yellow" class="block block-yellow"></div>
+           <div id="blue" class="block block-blue"></div>
+           
+               <div class="menu_wrapper">
+                   <h4 class="title">simon<sup>&reg;</sup></h4>
+                   <div id="counter" class="round_display">0</div>
+                   <div class="row">
+                       <div class="button_wrapper">
+                           <div class="button_title">Start</div>
+                           <button id="start" class="btn btn_menu btn-start-off"></button>
+                       </div>
+                       <div class="button_wrapper">
+                           <div class="button_title">Strict</div>
+                           <button id="strict-js" class="btn btn_menu btn-strict-off"></button>
+                       </div>                      
+                   </div>
+                   <div class="row">
+                       <div id="off_js" class="power_button">off</div>
+                       <div id="slider_js" class="slider slider-button-off"></div>
+                       <div id="on_js" class="power_button">on</div>
+                   </div>
+               </div>
+                               
+       </div>
+    </div>
+    
+    <audio id="greenBtnAudio">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
+        Your browser does not support sound.
+    </audio>
+    <audio id="redBtnAudio">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
+        Your browser does not support sound.
+    </audio>
+    <audio id="yellowBtnAudio">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg">
+        Your browser does not support sound.
+    </audio>
+    <audio id="blueBtnAudio">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
+        Your browser does not support sound.
+    </audio>
+    
+    <div id="time-js"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
