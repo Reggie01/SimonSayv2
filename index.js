@@ -1,16 +1,16 @@
-﻿var startBtn = document.getElementById("start"),
-    greenBtn = document.getElementById("green"),
-    redBtn = document.getElementById("red"),
-    yellowBtn = document.getElementById("yellow"),
-    blueBtn = document.getElementById("blue"),
+﻿var        startBtn = document.getElementById("start"),
+          greenBtn = document.getElementById("green"),
+              redBtn = document.getElementById("red"),
+          yellowBtn = document.getElementById("yellow"),
+             blueBtn = document.getElementById("blue"),
     greeBtnAudio = document.getElementById("greenBtnAudio"),
-    redBtnAudio = document.getElementById("redBtnAudio"),
-    yellowBtnAudio = document.getElementById("yellowBtnAudio"),
-    blueBtnAudio = document.getElementById("blueBtnAudio"),
-    currTime = document.getElementById("time-js"),
-    strictBtn = document.getElementById( "strict-js" ),
-    counter = document.getElementById("counter"),
-    onOffSliderBtn = document.getElementById("slider_js");
+      redBtnAudio = document.getElementById("redBtnAudio"),
+  yellowBtnAudio = document.getElementById("yellowBtnAudio"),
+     blueBtnAudio = document.getElementById("blueBtnAudio"),
+            currTime = document.getElementById("time-js"),
+             strictBtn = document.getElementById( "strict-js" ),
+              counter = document.getElementById("counter"),
+   onOffSliderBtn = document.getElementById("slider_js");
 
 var gameState = {
     playerTurn: false,
@@ -292,8 +292,8 @@ function render( callback ) {
             callback();
         }
     });
-    counter.textContent = gameState.round;
-
+    // counter.textContent = gameState.round;
+    update_time( gameState.round );
 }
 
 function randomColor() {
@@ -344,12 +344,10 @@ function changeCursorToPointer( elements, cursorStyle ) {
 function changeButtonClass( button, currentClassState, updatedClassState  ) {
     console.log( button.className );
     var classes = button.className;
-    
-    
-  
-        classes = classes.replace( currentClassState, updatedClassState );
-        console.log( classes );
-        button.className = classes;
+     
+    classes = classes.replace( currentClassState, updatedClassState );
+    console.log( classes );
+    button.className = classes;
  
 }
 
@@ -392,6 +390,9 @@ function resetGameToDefaultSettings() {
     
     changeCursorToPointer( [greenBtn, redBtn, yellowBtn, blueBtn], "initial");
     changeCursorToPointer( [startBtn, strictBtn], "initial");
+    changeButtonClass( startBtn, "btn-start-on", "btn-start-off" );
+    changeButtonClass( strictBtn, "btn-strict-on", "btn-start-off" );
+    animateElement( "--", 0, counter, function() { console.log( "Power off" ); } )
     
     gameState = {
         playerTurn: false,
@@ -424,3 +425,50 @@ function init() {
 
     console.log(JSON.stringify(gameState, null, 2));
 }
+
+/* code is from http://tutorialzine.com/2013/06/digital-clock/ by Martin Angelov */
+var clock = $( "#clock" );
+
+var digits_to_name = "zero one two three four five six seven eight nine".split(" ");
+
+var digits = {};
+
+var positions = [ "second", "first" ];
+
+var digit_holder = clock.find(".digits");
+
+$.each( positions, function() {
+    
+      var pos = $("<div>");
+      for( var i = 1; i < 8; i++ ){
+          pos.append("<span class='d" + i + "'>");
+      }
+      // console.log( this );
+      // Set the digits as key:value pairs in the digits object
+      digits[this] = pos;
+      
+      // Add the digit elements to the page
+      digit_holder.append(pos);
+    
+    
+});
+
+function update_time( num ) {
+  var numStr = num + "",
+        numStrArr, firstStr, secondStr;
+  if( numStr.length > 1 ) {
+    numStrArr = numStr.split("");
+    secondNumberStr = numStrArr[0];
+    firstNumberStr = numStrArr[1];
+    digits.first.attr( "class", digits_to_name[parseInt(firstNumberStr, 10)] );
+    digits.second.attr( "class", digits_to_name[parseInt(secondNumberStr, 10)] );
+  } else {
+    digits.first.attr( "class", digits_to_name[num] );
+  }
+  // console.log( digits );
+  // digits.first.attr("class", digits_to_name[0]);
+}
+
+// update_time(10);
+
+/* End of code from http://tutorialzine.com/2013/06/digital-clock/ by Martin Angelov */
