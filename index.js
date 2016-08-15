@@ -10,7 +10,8 @@
             currTime = document.getElementById("time-js"),
              strictBtn = document.getElementById( "strict-js" ),
               counter = document.getElementById("counter"),
-   onOffSliderBtn = document.getElementById("slider_js");
+   onOffSliderBtn = document.getElementById("slider_js"),
+                digits  = document.getElementById( "digits_js" );
 
 var gameState = {
     playerTurn: false,
@@ -61,7 +62,7 @@ var clickHandler = function(e) {
                         // Game is over. Reset gameState
                         userSettingDefault();
                         // Animate Game Over
-                        elementAnimation("WON", "", counter, render);
+                        elementAnimation("WON", "", digits, render);
                         handleStart();
                     }
                 } else {
@@ -77,7 +78,7 @@ var clickHandler = function(e) {
                 }
                 userSettingDefault();                
                 // Animate Error
-                elementAnimation("!!", "", counter, render);
+                elementAnimation("!!", "", digits, render);
             }
 
         });
@@ -190,11 +191,10 @@ function errorAnimation(callback) {
 function animateCounterError(str, callback) {
     var errorStr = str || "!!";
 
-    counter.textContent = errorStr;
+    digits.textContent = errorStr;
     setTimeout(
         function() {
-
-            counter.textContent = "";
+            digits.textContent = "";
             if (typeof callback === "function") {
                 callback();
             }
@@ -237,7 +237,7 @@ function animateElement(defaultStr, toggleStr, element, callback) {
 function run() {
     var elapsedTime = (Date.now() - gameState.start) / 1000;
     if ( elapsedTime > 8 ) {
-     console.log( elapsedTime );
+//     console.log( elapsedTime );
     }
     
     if (gameState.isStart) {
@@ -247,7 +247,7 @@ function run() {
             gameState.lock = true;
             // took to long to input data
             userSettingDefault();
-            elementAnimation( "!!", "", counter, function() { 
+            elementAnimation( "!!", "", digits, function() { 
                 render( function() {
                     gameState.lock = false;
                 });
@@ -292,8 +292,8 @@ function render( callback ) {
             callback();
         }
     });
-    // counter.textContent = gameState.round;
-    update_time( gameState.round );
+
+    digits.textContent = gameState.round;
 }
 
 function randomColor() {
@@ -392,7 +392,7 @@ function resetGameToDefaultSettings() {
     changeCursorToPointer( [startBtn, strictBtn], "initial");
     changeButtonClass( startBtn, "btn-start-on", "btn-start-off" );
     changeButtonClass( strictBtn, "btn-strict-on", "btn-start-off" );
-    animateElement( "--", 0, counter, function() { console.log( "Power off" ); } )
+    animateElement( "--", 0, digits, function() { console.log( "Power off" ); } )
     
     gameState = {
         playerTurn: false,
@@ -426,49 +426,3 @@ function init() {
     console.log(JSON.stringify(gameState, null, 2));
 }
 
-/* code is from http://tutorialzine.com/2013/06/digital-clock/ by Martin Angelov */
-var clock = $( "#clock" );
-
-var digits_to_name = "zero one two three four five six seven eight nine".split(" ");
-
-var digits = {};
-
-var positions = [ "second", "first" ];
-
-var digit_holder = clock.find(".digits");
-
-$.each( positions, function() {
-    
-      var pos = $("<div>");
-      for( var i = 1; i < 8; i++ ){
-          pos.append("<span class='d" + i + "'>");
-      }
-      // console.log( this );
-      // Set the digits as key:value pairs in the digits object
-      digits[this] = pos;
-      
-      // Add the digit elements to the page
-      digit_holder.append(pos);
-    
-    
-});
-
-function update_time( num ) {
-  var numStr = num + "",
-        numStrArr, firstStr, secondStr;
-  if( numStr.length > 1 ) {
-    numStrArr = numStr.split("");
-    secondNumberStr = numStrArr[0];
-    firstNumberStr = numStrArr[1];
-    digits.first.attr( "class", digits_to_name[parseInt(firstNumberStr, 10)] );
-    digits.second.attr( "class", digits_to_name[parseInt(secondNumberStr, 10)] );
-  } else {
-    digits.first.attr( "class", digits_to_name[num] );
-  }
-  // console.log( digits );
-  // digits.first.attr("class", digits_to_name[0]);
-}
-
-// update_time(10);
-
-/* End of code from http://tutorialzine.com/2013/06/digital-clock/ by Martin Angelov */

@@ -26,6 +26,7 @@ This is a Free Code Camp advanced front end development project "[build-a-simon-
 * http://stackoverflow.com/questions/22406661/how-to-make-one-circle-inside-of-another-using-css
 * http://www.cssmatic.com/
 * http://stackoverflow.com/questions/4336363/what-is-the-html-code-to-show-the-registered-symbol
+* http://tutorialzine.com/2013/06/digital-clock/
 
 
 ### Technologies Used
